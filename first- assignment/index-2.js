@@ -1,4 +1,4 @@
-const data = {
+const userDetails = {
     firstName: prompt ("Enter your First Name"),
     lastName: prompt ("Enter your Last Name"),
     middleName: prompt ("Enter your Middle Name"),
@@ -9,32 +9,29 @@ const data = {
     highestAcademicQualification: prompt ("Enter your Academic Qualification"),
     identificationNumber: prompt ("Enter Identification Number"),
     age: prompt ("Enter your age"),
+    // ageClassification: ("No age classification"),
 }
 
-let ageClassification = data.age;
-
-if ((data.age >= 0) && (data.age <= 7)) {
-    ageClassification = ("toddler");
+if ((userDetails.age >= 0) && (userDetails.age <= 7)) {
+    userDetails.ageClassification = ("toddler");
 }
-else if ((data.age >= 8) && (data.age <= 12)) {
-    ageClassification = ("adolesecent");
+else if ((userDetails.age >= 8) && (userDetails.age <= 12)) {
+    userDetails.ageClassification = ("adolesecent");
 }
-else if ((data.age >= 13) && (data.age <= 19)) {
-    ageClassification = ("teenager");
+else if ((userDetails.age >= 13) && (userDetails.age <= 19)) {
+    userDetails.ageClassification = ("teenager");
 }
-else if ((data.age >= 20) && (data.age <= 25)) {
-    ageClassification = ("baby adult");
+else if ((userDetails.age >= 20) && (userDetails.age <= 25)) {
+    userDetails.ageClassification = ("baby adult");
 }
-else if ((data.age >= 26) && (data.age <= 34)) {
-    ageClassification = ("adult");
+else if ((userDetails.age >= 26) && (userDetails.age <= 34)) {
+    userDetails.ageClassification = ("adult");
 }
-else if ((data.age >= 35) && (data.age <= 55)) {
-    ageClassification = ("midlife crisis");
+else if ((userDetails.age >= 35) && (userDetails.age <= 55)) {
+    userDetails.ageClassification = ("midlife crisis");
 }
 else {
-    ageClassification = ("ancestor");
+    userDetails.ageClassification = ("ancestor");
 }
-
-const userDetails = [data, ageClassification];
 
 console.log(userDetails);
