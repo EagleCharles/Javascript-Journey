@@ -1,14 +1,24 @@
 const course = {
-    english: prompt ("Enter your English grade"),
-    french: prompt ("Enter your French grade"),
-    mathematics: prompt ("Enter your Maths grade"),
-    physics: prompt ("Enter your Physics grade"),
-    chemistry: prompt ("Enter your Chemistry grade"),
-    biology: prompt ("Enter your Biology grade"),
-    workshop: prompt ("Enter your Workshop grade"),
-    technicalDrawing: prompt ("Enter your Technical Drawing grade"),
-    humanities: prompt ("Enter your Humanities grade"),
+    english: '',
+    french: '',
+    mathematics: '',
+    physics: '',
+    chemistry: '',
+    biology: '',
+    workshop: '',
+    technicalDrawing: '',
+    humanities: '',
 }
+
+course.english = prompt ("Enter your English grade");
+course.french = prompt ("Enter your French grade");
+course.mathematics = prompt ("Enter your Maths grade");
+course.physics = prompt ("Enter your Physics grade");
+course.chemistry = prompt ("Enter your Chemistry grade");
+course.biology = prompt ("Enter your Biology grade");
+course.workshop = prompt ("Enter your Workshop grade");
+course.technicalDrawing = prompt ("Enter your Technical Drawing grade");
+course.humanities = prompt ("Enter your Humanities grade");
 
 const courseUnit = {
     english: 2,
