@@ -1,32 +1,3 @@
-const english = prompt ("Enter you grade in English");
-const englishGrade = enterCorrectGrade(english);
-
-const french = prompt ("Enter you grade in French");
-const frenchGrade = enterCorrectGrade(french);
-
-const maths = prompt ("Enter you grade in Maths");
-const mathsGrade = enterCorrectGrade(maths);
-
-const physics = prompt ("Enter you grade in Physics");
-const physicsGrade = enterCorrectGrade(physics);
-
-const chemistry = prompt ("Enter you grade in Chemistry");
-const chemistryGrade = enterCorrectGrade(chemistry);
-
-const biology = prompt ("Enter you grade in Biology");
-const biologyGrade = enterCorrectGrade(biology);
-
-const workshop = prompt ("Enter you grade in Workshop");
-const workshopGrade = enterCorrectGrade(workshop);
-
-const technicalDrawing = prompt ("Enter you grade in technicalDrawing");
-const technicalDrawingGrade = enterCorrectGrade(technicalDrawing);
-
-const humanities = prompt ("Enter you grade in humanities");
-const humanitiesGrade = enterCorrectGrade(humanities);
-
-
-
 const courseUnit = {
     english: 2,
     french: 1,
@@ -41,17 +12,20 @@ const courseUnit = {
 
 let totalUnits = 21;
 
-const englishUnit = computeStudentScore(englishGrade, courseUnit.english);
-const frenchUnit = computeStudentScore(frenchGrade, courseUnit.french);
-const mathematicsUnit = computeStudentScore(mathsGrade, courseUnit.maths);
-const physicsUnit = computeStudentScore(physicsGrade, courseUnit.physics);
-const chemistryUnit = computeStudentScore(chemistryGrade, courseUnit.chemistry);
-const biologyUnit = computeStudentScore(biologyGrade, courseUnit.biology);
-const workshopUnit = computeStudentScore(workshopGrade, courseUnit.workshop);
-const technicalDrawingUnit = computeStudentScore(technicalDrawingGrade, courseUnit.technicalDrawing);
-const humanitiesUnit = computeStudentScore(humanitiesGrade, courseUnit.humanities);
+const englishUnit = computeStudentScore("English", courseUnit.english);
+const frenchUnit = computeStudentScore("French", courseUnit.french);
+const mathematicsUnit = computeStudentScore("Maths", courseUnit.maths);
+const physicsUnit = computeStudentScore("Physics", courseUnit.physics);
+const chemistryUnit = computeStudentScore("Chemistry", courseUnit.chemistry);
+const biologyUnit = computeStudentScore("Biology", courseUnit.biology);
+const workshopUnit = computeStudentScore("Workshop", courseUnit.workshop);
+const technicalDrawingUnit = computeStudentScore("Technical Drawing", courseUnit.technicalDrawing);
+const humanitiesUnit = computeStudentScore("Humanities", courseUnit.humanities);
 
-function computeStudentScore(grade, units) {
+function computeStudentScore(course, units) {
+    let grade = fetchUserGrade(course);
+
+    let score;
     if (grade === 'A') {
         score = 5 * units;
     }
@@ -74,13 +48,35 @@ function computeStudentScore(grade, units) {
     return score;
 }
 
-function enterCorrectGrade(gradeChecker) {
-    while ((gradeChecker !== 'A') && (gradeChecker !== 'B') && (gradeChecker !== 'C') && (gradeChecker !== 'D') && (gradeChecker !== 'E') && (gradeChecker !== 'F')) {
-        gradeChecker = prompt("Incorrect grade value. please re-enter your appropriate grade (Can only be A, B, C, D, E or F)");
-    }
+function fetchUserGrade(course) {
+    let promptMessage = "What was your grade in " + course;
+    let grade = prompt(promptMessage);
 
-    return gradeChecker;
+    while (!isValid(grade)) {
+        promptMessage = "Incorrect value, Please type in your grade in " + course;
+        grade = prompt(promptMessage);
+    }
+    return grade;
 }
+
+function isValid(grade) {
+    let validity = grade === 'A' ||
+                    grade === 'B' ||
+                    grade === 'C' ||
+                    grade === 'D' ||
+                    grade === 'E' ||
+                    grade === 'F';
+
+    return validity;
+}
+
+// function enterCorrectGrade(gradeChecker) {
+//     while ((gradeChecker !== 'A') && (gradeChecker !== 'B') && (gradeChecker !== 'C') && (gradeChecker !== 'D') && (gradeChecker !== 'E') && (gradeChecker !== 'F')) {
+//         gradeChecker = prompt("Incorrect grade value. please re-enter your appropriate grade (Can only be A, B, C, D, E or F)");
+//     }
+
+//     return gradeChecker;
+// }
 
 
 const totalPoints = englishUnit + frenchUnit + mathematicsUnit + physicsUnit + chemistryUnit + biologyUnit + workshopUnit + technicalDrawingUnit + humanitiesUnit;
